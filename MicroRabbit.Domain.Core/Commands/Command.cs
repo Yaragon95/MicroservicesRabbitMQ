@@ -1,4 +1,6 @@
-﻿namespace MicroRabbit.Domain.Core.Commands
+﻿using MicroRabbit.Domain.Core.Events;
+
+namespace MicroRabbit.Domain.Core.Commands
 {
     /// <summary>
     /// Referencia del mensaje que sera transportado
