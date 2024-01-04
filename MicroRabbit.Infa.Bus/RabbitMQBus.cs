@@ -98,7 +98,7 @@ namespace MicroRabbit.Infa.Bus
             }
             catch (Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
         }
 
