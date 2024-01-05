@@ -7,6 +7,7 @@ using MicroRabbitMQ.Banking.Data.Repository;
 using MicroRabbitMQ.Banking.Domain.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace RabbitMQ.Infra.IoC
 {
@@ -14,6 +15,9 @@ namespace RabbitMQ.Infra.IoC
     {
         public static void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
+            //MediatR Meadiator
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
             // Domain bus
             services.AddTransient<IEventBus, RabbitMQBus>();
             services.Configure<RabbitMQSettings>(settings => configuration.GetSection("RabbitMQSettings"));
